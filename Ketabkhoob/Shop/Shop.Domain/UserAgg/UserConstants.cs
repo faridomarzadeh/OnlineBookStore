@@ -21,10 +21,10 @@ namespace Shop.Domain.UserAgg
 
             public static string INVALID_ID => "The national ID is not valid";
 
-            public static string INVALID_PRICE => $"Price can not be less than {MINIMUM_PRICE}";
+            public static string INVALID_CHARGE_AMOUNT => $"Amount can not be less than {MINIMUM_CHARGE}";
         }
         public static string TRACKING_MESSAGE = "Your Traking code is : ";
 
-        public static int MINIMUM_PRICE = 500;
+        public static int MINIMUM_CHARGE = 500;
     }
 }

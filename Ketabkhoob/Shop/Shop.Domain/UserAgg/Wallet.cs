@@ -7,8 +7,8 @@ namespace Shop.Domain.UserAgg
     {
         public Wallet(int price, string description, bool isFinalized, DateTime? finalizedDate, WalletType type)
         {
-            if (price < UserConstants.MINIMUM_PRICE)
-                throw new InvalidDomainDataException(UserConstants.ExceptionMessages.INVALID_PRICE);
+            if (price < UserConstants.MINIMUM_CHARGE)
+                throw new InvalidDomainDataException(UserConstants.ExceptionMessages.INVALID_CHARGE_AMOUNT);
             Price = price;
             Description = description;
             IsFinalized = isFinalized;
