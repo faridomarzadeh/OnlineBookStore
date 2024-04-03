@@ -1,8 +1,9 @@
-﻿using Common.Domain.Exceptions;
+﻿using Common.Domain;
+using Common.Domain.Exceptions;
 
 namespace Shop.Domain.OrderAgg
 {
-    public class OrderItem
+    public class OrderItem:BaseEntity
     {
         public OrderItem(long inventoryId, int count, int price)
         {
