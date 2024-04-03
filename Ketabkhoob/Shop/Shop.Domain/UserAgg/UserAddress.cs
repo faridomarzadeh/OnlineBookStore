@@ -64,7 +64,7 @@ namespace Shop.Domain.UserAgg
             NullOrEmptyDomainDataException.CheckString(nationalID, nameof(nationalID));
 
             if (!nationalID.IsIdValid())
-                throw new InvalidDomainDataException(UserConstants.ExceptionMessages.INVALID_ID);
+                throw new InvalidDomainDataException(DomainConstants.Exceptions.INVALID_ID);
         }
     }
 }

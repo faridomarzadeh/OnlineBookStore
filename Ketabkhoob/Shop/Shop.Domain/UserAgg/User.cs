@@ -55,7 +55,7 @@ namespace Shop.Domain.UserAgg
         {
             var address = Addresses.FirstOrDefault(x => x.Id == addressId);
             if (address == null)
-                throw new NullOrEmptyDomainDataException(UserConstants.ExceptionMessages.ADDRESS_NOT_FOUND);
+                throw new NullOrEmptyDomainDataException(DomainConstants.Exceptions.ADDRESS_NOT_FOUND);
 
             Addresses.Remove(address);
         }
@@ -64,7 +64,7 @@ namespace Shop.Domain.UserAgg
         {
             var oldAddress = Addresses.FirstOrDefault(f=>f.Id==Id);
             if (oldAddress == null)
-                throw new NullOrEmptyDomainDataException(UserConstants.ExceptionMessages.ADDRESS_NOT_FOUND);
+                throw new NullOrEmptyDomainDataException(DomainConstants.Exceptions.ADDRESS_NOT_FOUND);
 
             Addresses.Remove(oldAddress);
             Addresses.Add(address);
@@ -92,14 +92,14 @@ namespace Shop.Domain.UserAgg
             NullOrEmptyDomainDataException.CheckString(phoneNumber, nameof(phoneNumber));
             NullOrEmptyDomainDataException.CheckString(email, nameof(email));
             if (phoneNumber.Length != 11)
-                throw new InvalidDomainDataException(UserConstants.ExceptionMessages.INVALID_PHONE_NUMBER);
+                throw new InvalidDomainDataException(DomainConstants.Exceptions.INVALID_PHONE_NUMBER);
             if (email.IsValidEmail() == false)
-                throw new InvalidDomainDataException(UserConstants.ExceptionMessages.INVALID_EMAIL);
+                throw new InvalidDomainDataException(DomainConstants.Exceptions.INVALID_EMAIL);
 
             if (phoneNumber != PhoneNumber && userDomainService.PhoneNumberExists(phoneNumber))
-                throw new InvalidDomainDataException(UserConstants.ExceptionMessages.NUMBER_IN_USE);
+                throw new InvalidDomainDataException(DomainConstants.Exceptions.NUMBER_IN_USE);
             if (email != Email && userDomainService.EmailExists(email))
-                throw new InvalidDomainDataException(UserConstants.ExceptionMessages.EMAIL_IN_USE);
+                throw new InvalidDomainDataException(DomainConstants.Exceptions.EMAIL_IN_USE);
         }
     }
 }
