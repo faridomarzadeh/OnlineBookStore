@@ -22,6 +22,7 @@ namespace Shop.Domain
 
             public static string PRODUCT_ALREADY_ADDED => "The product already been registered.";
             public static string PRODUCT_NOT_FOUND => "Product not found";
+            public static string DUPLICATED_SLUG => "Slug is duplicated";
         }
     }
 }
