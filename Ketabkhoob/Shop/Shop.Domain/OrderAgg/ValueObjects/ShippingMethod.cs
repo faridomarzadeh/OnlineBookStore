@@ -1,4 +1,4 @@
-﻿using Common.Domain;
+﻿using Common.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
