@@ -15,7 +15,7 @@ namespace Shop.Domain.CategoryAgg
     {
         public Category(string title, string slug, SeoData seoData, ICategoryDomainService categoryDomainService)
         {
-            slug = slug.ToSlug();
+            slug = slug?.ToSlug();
             Validate(title, slug, categoryDomainService);
             Title = title;
             Slug = slug;
@@ -26,13 +26,22 @@ namespace Shop.Domain.CategoryAgg
         public string Slug { get; private set; }
         public SeoData SeoData { get; private set; }
         public long? ParentId { get; private set; }
+        public List<Category> ChildCategories { get; private set; }
 
         public void Edit(string title, string slug, ICategoryDomainService categoryDomainService)
         {
-            slug = slug.ToSlug();
+            slug = slug?.ToSlug();
             Validate(title, slug, categoryDomainService);
             Title = title;
             Slug = slug;
+        }
+
+        public void AddChild(string title, string slug, SeoData seoData, ICategoryDomainService categoryDomainService)
+        {
+            ChildCategories.Add(new Category(title, slug, seoData, categoryDomainService)
+            {
+                ParentId = Id
+            });
         }
 
         public void Validate(string title, string slug, ICategoryDomainService categoryDomainService)
