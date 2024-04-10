@@ -28,12 +28,13 @@ namespace Shop.Domain.CategoryAgg
         public long? ParentId { get; private set; }
         public List<Category> ChildCategories { get; private set; }
 
-        public void Edit(string title, string slug, ICategoryDomainService categoryDomainService)
+        public void Edit(string title, string slug, SeoData seoData, ICategoryDomainService categoryDomainService)
         {
             slug = slug?.ToSlug();
             Validate(title, slug, categoryDomainService);
             Title = title;
             Slug = slug;
+            SeoData = seoData;
         }
 
         public void AddChild(string title, string slug, SeoData seoData, ICategoryDomainService categoryDomainService)

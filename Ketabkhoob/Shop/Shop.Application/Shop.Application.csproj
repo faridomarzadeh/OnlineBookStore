@@ -1,9 +1,46 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Comments\Edit\" />
+    <Folder Include="Comments\SetStatus\" />
+    <Folder Include="GeneralEntities\Banner\Create\" />
+    <Folder Include="GeneralEntities\Banner\Edit\" />
+    <Folder Include="GeneralEntities\Slider\Create\" />
+    <Folder Include="GeneralEntities\Slider\Edit\" />
+    <Folder Include="Orders\AddItem\" />
+    <Folder Include="Orders\SetCount\" />
+    <Folder Include="Orders\RemoveItem\" />
+    <Folder Include="Products\Create\" />
+    <Folder Include="Products\Edit\" />
+    <Folder Include="Products\AddImage\" />
+    <Folder Include="Products\RemoveImage\" />
+    <Folder Include="Roles\Create\" />
+    <Folder Include="Roles\Edit\" />
+    <Folder Include="Sellers\Create\" />
+    <Folder Include="Sellers\Edit\" />
+    <Folder Include="Sellers\AddInventory\" />
+    <Folder Include="Sellers\EditInventory\" />
+    <Folder Include="Sellers\DeleteInventory\" />
+    <Folder Include="Sellers\SetStatus\" />
+    <Folder Include="Users\Create\" />
+    <Folder Include="Users\AddAddress\" />
+    <Folder Include="Users\Edit\" />
+    <Folder Include="Users\DeleteAddress\" />
+    <Folder Include="Users\EditAddress\" />
+    <Folder Include="Users\ChargeWallet\" />
+    <Folder Include="Users\Register\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common.Application\Common.Application.csproj" />
+    <ProjectReference Include="..\..\Common\Common.Domain\Common.Domain.csproj" />
+    <ProjectReference Include="..\Shop.Domain\Shop.Domain.csproj" />
+  </ItemGroup>
 
 </Project>
