@@ -11,7 +11,6 @@
     <Folder Include="GeneralEntities\Banner\Edit\" />
     <Folder Include="GeneralEntities\Slider\Create\" />
     <Folder Include="GeneralEntities\Slider\Edit\" />
-    <Folder Include="Orders\AddItem\" />
     <Folder Include="Orders\SetCount\" />
     <Folder Include="Orders\RemoveItem\" />
     <Folder Include="Products\Create\" />

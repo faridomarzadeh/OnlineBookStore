@@ -48,6 +48,13 @@ namespace Shop.Domain.OrderAgg
 
         public void AddItem(OrderItem item)
         {
+            ChangeOrderValidator();
+            var oldItem = Items.FirstOrDefault(x => x.InventoryId == item.InventoryId);
+            if (oldItem != null)
+            {
+                oldItem.SetCount(item.Count+oldItem.Count);
+                return;
+            }
             Items.Add(item);
         }
 
@@ -82,6 +89,12 @@ namespace Shop.Domain.OrderAgg
         public void Checkout(OrderAddress orderAddress)
         {
             Address = orderAddress;
+        }
+
+        private void ChangeOrderValidator()
+        {
+            if (Status != OrderStatus.Pending)
+                throw new InvalidDomainDataException("could not add item to this order");
         }
 
     }
