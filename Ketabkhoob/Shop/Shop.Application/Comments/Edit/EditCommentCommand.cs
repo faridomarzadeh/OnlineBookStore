@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Application.Comments.Create
+namespace Shop.Application.Comments.Edit
 {
-    public record CreateCommentCommand(string Text,long UserId,long ProductId):IBaseCommand;
+    public record EditCommentCommand(long Id,string Text,long UserId):IBaseCommand;
 }
