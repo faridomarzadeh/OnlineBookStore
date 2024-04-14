@@ -26,6 +26,18 @@ namespace Shop.Domain.OrderAgg
             Count = newCount;
         }
 
+        public void IncreaseCount(int count)
+        {
+            Count += count;
+        }
+
+        public void DecreaseCount(int count)
+        {
+            if(Count -count <=0) 
+                return;
+            Count -= count;
+        }
+
         public void SetPrice(int newPrice)
         {
             ValidatePrice(newPrice);

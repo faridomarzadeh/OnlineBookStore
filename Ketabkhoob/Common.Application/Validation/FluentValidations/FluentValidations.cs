@@ -1,5 +1,6 @@
 ﻿using Common.Application.FileUtil;
 using Common.Application.SecurityUtil;
+using Common.Domain;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 
@@ -32,6 +33,15 @@ namespace Common.Application.Validation.FluentValidations
                 {
                     context.AddFailure(errorMessage);
                 }
+            });
+        }
+
+        public static IRuleBuilderOptionsConditions<T, string> ValidNationalID<T> (this IRuleBuilder<T,string> ruleBuilder, string errorMessage = "کدملی نامعتبر است")
+        {
+            return ruleBuilder.Custom((nationalCode, context) =>
+            {
+                if(!nationalCode.IsIdValid())
+                    context.AddFailure(errorMessage);
             });
         }
     }

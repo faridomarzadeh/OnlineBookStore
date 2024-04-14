@@ -48,7 +48,7 @@ namespace Shop.Domain.OrderAgg
 
         public void AddItem(OrderItem item)
         {
-            ChangeOrderValidator();
+            ChangeOrderCountValidator();
             var oldItem = Items.FirstOrDefault(x => x.InventoryId == item.InventoryId);
             if (oldItem != null)
             {
@@ -67,6 +67,24 @@ namespace Shop.Domain.OrderAgg
             }
         }
 
+        public void IncreaseItemCount(long itemId, int count)
+        {
+            ChangeOrderCountValidator();
+            var item = Items.FirstOrDefault(f=>f.Id == itemId);
+            if (item == null)
+                throw new NullOrEmptyDomainDataException("Item not found");
+            item.IncreaseCount(count);
+        }
+
+        public void DecreaseItemCount(long itemId, int count)
+        {
+            ChangeOrderCountValidator();
+            var item = Items.FirstOrDefault(f => f.Id == itemId);
+            if (item == null)
+                throw new NullOrEmptyDomainDataException("Item not found");
+            item.IncreaseCount(count);
+        }
+
         public void SetItemCount(long itemId, int count)
         {
             var currentItem = Items.FirstOrDefault(f=>f.Id == itemId);
@@ -76,7 +94,7 @@ namespace Shop.Domain.OrderAgg
             }
             else
             {
-                throw new InvalidDomainDataException();
+                throw new NullOrEmptyDomainDataException();
             }
         }
 
@@ -91,10 +109,10 @@ namespace Shop.Domain.OrderAgg
             Address = orderAddress;
         }
 
-        private void ChangeOrderValidator()
+        private void ChangeOrderCountValidator()
         {
             if (Status != OrderStatus.Pending)
-                throw new InvalidDomainDataException("could not add item to this order");
+                throw new InvalidDomainDataException("can not change this order");
         }
 
     }
