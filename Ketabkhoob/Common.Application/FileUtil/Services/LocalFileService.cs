@@ -69,7 +69,6 @@ namespace Common.Application.FileUtil.Services
 
             using var stream = new FileStream(path, FileMode.Create);
             await file.CopyToAsync(stream);
-
             return fileName;
         }
     }

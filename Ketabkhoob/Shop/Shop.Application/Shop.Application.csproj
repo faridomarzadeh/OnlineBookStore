@@ -11,8 +11,6 @@
     <Folder Include="GeneralEntities\Banner\Edit\" />
     <Folder Include="GeneralEntities\Slider\Create\" />
     <Folder Include="GeneralEntities\Slider\Edit\" />
-    <Folder Include="Products\Create\" />
-    <Folder Include="Products\Edit\" />
     <Folder Include="Products\AddImage\" />
     <Folder Include="Products\RemoveImage\" />
     <Folder Include="Roles\Create\" />

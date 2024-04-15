@@ -17,7 +17,9 @@ namespace Shop.Domain.ProductAgg
             long categoryId, long subCategoryId, long subSubCategoryId, string slug,
             SeoData seoData, IProductDomainservice productDomainservice)
         {
-            Validate(title, slug, imageName, description, productDomainservice);
+            NullOrEmptyDomainDataException.CheckString(imageName, nameof(imageName));
+
+            Validate(title, slug, description, productDomainservice);
             Title = title;
             ImageName = imageName;
             Description = description;
@@ -39,13 +41,12 @@ namespace Shop.Domain.ProductAgg
         public List<ProductImage> Images { get; private set; }
         public List<ProductSpecification> Specifications { get; private set; }
 
-        public void Edit(string title, string imageName, string description,
+        public void Edit(string title, string description,
             long categoryId, long subCategoryId, long subSubCategoryId, string slug, SeoData seoData,
             IProductDomainservice productDomainservice)
         {
-            Validate(title, slug, imageName, description, productDomainservice);
+            Validate(title, slug, description, productDomainservice);
             Title = title;
-            ImageName = imageName;
             Description = description;
             CategoryId = categoryId;
             SubCategoryId = subCategoryId;
@@ -57,6 +58,12 @@ namespace Shop.Domain.ProductAgg
         {
             image.ProductId = Id;
             Images.Add(image);
+        }
+
+        public void SetProductImage(string imageName)
+        {
+            NullOrEmptyDomainDataException.CheckString(imageName, nameof(imageName));
+            ImageName = imageName;
         }
         public void RemoveImage(long imageId)
         {
@@ -71,10 +78,9 @@ namespace Shop.Domain.ProductAgg
             Specifications = specifications;
         }
 
-        public void Validate(string title,string slug, string imageName, string description, IProductDomainservice productDomainservice)
+        public void Validate(string title,string slug, string description, IProductDomainservice productDomainservice)
         {
             NullOrEmptyDomainDataException.CheckString(title,nameof(title));
-            NullOrEmptyDomainDataException.CheckString(imageName,nameof(imageName));
             NullOrEmptyDomainDataException.CheckString(description,nameof(description));
             NullOrEmptyDomainDataException.CheckString(slug,nameof(slug));
 
