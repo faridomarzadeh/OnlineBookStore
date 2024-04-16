@@ -65,11 +65,14 @@ namespace Shop.Domain.ProductAgg
             NullOrEmptyDomainDataException.CheckString(imageName, nameof(imageName));
             ImageName = imageName;
         }
-        public void RemoveImage(long imageId)
+        public string RemoveImage(long imageId)
         {
             var img = Images.FirstOrDefault(x => x.Id == imageId);
-            if (img != null)
-                Images.Remove(img);
+            if (img == null)
+                throw new NullOrEmptyDomainDataException("عکس یافت نشد");
+
+            Images.Remove(img);
+            return img.ImageName;
         }
 
         public void SetSpecifications(List<ProductSpecification> specifications)
