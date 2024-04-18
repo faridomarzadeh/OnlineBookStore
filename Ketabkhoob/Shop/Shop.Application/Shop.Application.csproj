@@ -11,10 +11,6 @@
     <Folder Include="GeneralEntities\Banner\Edit\" />
     <Folder Include="GeneralEntities\Slider\Create\" />
     <Folder Include="GeneralEntities\Slider\Edit\" />
-    <Folder Include="Sellers\AddInventory\" />
-    <Folder Include="Sellers\EditInventory\" />
-    <Folder Include="Sellers\DeleteInventory\" />
-    <Folder Include="Sellers\SetStatus\" />
     <Folder Include="Users\Create\" />
     <Folder Include="Users\AddAddress\" />
     <Folder Include="Users\Edit\" />

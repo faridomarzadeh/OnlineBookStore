@@ -22,6 +22,7 @@ namespace Shop.Application.Sellers.Edit
                 return OperationResult.NotFound();
 
             seller.Edit(request.ShopName, request.NationalCode,_sellerDomainService);
+            seller.SetStatus(request.SellerStatus);
             await _sellerRepository.Save();
             return OperationResult.Success();
 

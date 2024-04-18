@@ -10,7 +10,7 @@ namespace Common.Domain.Repository
     public interface IBaseRepository<T> where T : BaseEntity
     {
         Task<T> GetAsync(long id);
-        Task<T> GetTracking(long id);
+        Task<T?> GetTracking(long id);
         Task AddAsync(T entity);
         void Add(T entity);
         Task AddRange(ICollection<T> entities);

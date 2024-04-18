@@ -55,22 +55,12 @@ namespace Shop.Domain.SellerAgg
             Inventories.Add(inventory);
         }
 
-        public void EditInventory(SellerInventory inventory)
+        public void EditInventory(long inventoryId,int count,int price,int? discountPercentage)
         {
-            var currentInventory = Inventories.FirstOrDefault(f=>f.Id == inventory.Id);
+            var currentInventory = Inventories.FirstOrDefault(f=>f.Id == inventoryId);
             if (currentInventory == null)
                 return;
-
-            Inventories.Remove(currentInventory);
-            Inventories.Add(inventory);
-        }
-
-        public void DeleteInventory(long inventoryId)
-        {
-            if (Inventories.Any(f => f.Id == inventoryId))
-                Inventories.Remove(Inventories.FirstOrDefault(f => f.Id == inventoryId));
-            else
-                throw new InvalidDomainDataException(DomainConstants.Exceptions.PRODUCT_NOT_FOUND);
+            currentInventory.Edit(count, price, discountPercentage);
         }
         public void Validate(string shopName, string nationalCode)
         {
