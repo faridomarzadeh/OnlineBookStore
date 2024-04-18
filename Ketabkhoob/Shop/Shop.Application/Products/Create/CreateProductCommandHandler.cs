@@ -25,7 +25,7 @@ namespace Shop.Application.Products.Create
             var product = new Product(request.Title,imageName,request.Description,request.CategoryId,
                 request.SubCategoryId,request.SubSubCategoryId,request.Slug,request.SeoData,_productDomainservice);
 
-            await _productRepository.Add(product);
+            await _productRepository.AddAsync(product);
 
             var list = new List<ProductSpecification>();
             request.Specifications.ToList().ForEach(specification =>

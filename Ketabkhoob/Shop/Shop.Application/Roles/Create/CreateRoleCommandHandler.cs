@@ -17,7 +17,7 @@ namespace Shop.Application.Roles.Create
             var permissions = new List<RolePermission>();
             request.Permissions.ForEach(x => permissions.Add(new RolePermission(x)));
             var role = new Role(request.Title, permissions);
-            await _roleRepository.Add(role);
+            await _roleRepository.AddAsync(role);
             await _roleRepository.Save();
             return OperationResult.Success();
         }
