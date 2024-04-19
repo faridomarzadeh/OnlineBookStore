@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="GeneralEntities\Banner\Create\" />
-    <Folder Include="GeneralEntities\Banner\Edit\" />
-    <Folder Include="GeneralEntities\Slider\Create\" />
-    <Folder Include="GeneralEntities\Slider\Edit\" />
     <Folder Include="Users\Create\" />
     <Folder Include="Users\AddAddress\" />
     <Folder Include="Users\Edit\" />
