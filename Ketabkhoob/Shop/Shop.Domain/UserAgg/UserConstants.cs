@@ -13,6 +13,7 @@ namespace Shop.Domain.UserAgg
         {
             public static string INVALID_CHARGE_AMOUNT => $"Amount can not be less than {MINIMUM_CHARGE}";
         }
+        public static string DefaultAvatarImage = "avatar.png";
         public static string TRACKING_MESSAGE = "Your Traking code is : ";
 
         public static int MINIMUM_CHARGE = 500;

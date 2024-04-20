@@ -10,9 +10,9 @@ namespace Shop.Application.Products.Create
     {
         private readonly IProductDomainservice _productDomainservice;
         private readonly IProductRepository _productRepository;
-        private readonly ILocalFileService _localFileService;
+        private readonly IFileService _localFileService;
         public CreateProductCommandHandler(IProductDomainservice productDomainservice,
-            IProductRepository productRepository, ILocalFileService localFileService)
+            IProductRepository productRepository, IFileService localFileService)
         {
             _productDomainservice = productDomainservice;
             _productRepository = productRepository;

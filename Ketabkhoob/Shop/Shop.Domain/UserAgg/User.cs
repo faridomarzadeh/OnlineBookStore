@@ -22,6 +22,7 @@ namespace Shop.Domain.UserAgg
             Email = email;
             Password = password;
             Gender = gender;
+            AvatarName = UserConstants.DefaultAvatarImage;
         }
 
         public string Name { get; private set; }
@@ -29,6 +30,7 @@ namespace Shop.Domain.UserAgg
         public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
+        public string AvatarName {  get; private set; }
         public Gender Gender { get; private set; }
         public List<UserRole> Roles { get; private set; }
         public List<Wallet> Wallets { get; private set; }
@@ -80,6 +82,14 @@ namespace Shop.Domain.UserAgg
             roles.ForEach(role => role.UserId =Id);
             Roles.Clear();
             Roles.AddRange(roles);
+        }
+
+        public void SetAvatar(string imageName)
+        {
+            if (string.IsNullOrWhiteSpace(imageName))
+                imageName = UserConstants.DefaultAvatarImage;
+
+            AvatarName = imageName;
         }
 
         public static User Register(string email,string phoneNumber, string password, IUserDomainService userDomainService)

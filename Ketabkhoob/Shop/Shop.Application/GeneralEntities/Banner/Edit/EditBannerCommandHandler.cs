@@ -10,10 +10,10 @@ namespace Shop.Application.GeneralEntities.Banner.Edit
     {
 
         private readonly IBannerRepository _bannerRepository;
-        private readonly ILocalFileService _localFileService;
+        private readonly IFileService _localFileService;
 
         public EditBannerCommandHandler(IBannerRepository bannerRepository,
-            ILocalFileService localFileService)
+            IFileService localFileService)
         {
             _bannerRepository = bannerRepository;
             _localFileService = localFileService;

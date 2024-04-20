@@ -9,10 +9,10 @@ namespace Shop.Application.Products.RemoveImage
     {
 
         private readonly IProductRepository _productRepository;
-        private readonly ILocalFileService _localFileService;
+        private readonly IFileService _localFileService;
 
         public RemoveProductImageCommandHandler(IProductRepository productRepository,
-            ILocalFileService localFileService)
+            IFileService localFileService)
         {
             _productRepository = productRepository;
             _localFileService = localFileService;

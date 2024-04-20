@@ -11,10 +11,10 @@ namespace Shop.Application.Products.Edit
     {
         private readonly IProductDomainservice _productDomainservice;
         private readonly IProductRepository _productRepository;
-        private readonly ILocalFileService _localLocalFileService;
+        private readonly IFileService _localLocalFileService;
 
         public EditProductCommandHandler(IProductDomainservice productDomainservice,
-            IProductRepository productRepository, ILocalFileService localLocalFileService)
+            IProductRepository productRepository, IFileService localLocalFileService)
         {
             _productDomainservice = productDomainservice;
             _productRepository = productRepository;

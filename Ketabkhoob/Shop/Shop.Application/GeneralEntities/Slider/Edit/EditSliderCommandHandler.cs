@@ -9,10 +9,10 @@ namespace Shop.Application.GeneralEntities.Slider.Edit
     public class EditSliderCommandHandler : IBaseCommandHandler<EditSliderCommand>
     {
         private readonly ISliderRepository _sliderRepository;
-        private readonly ILocalFileService _localFileService;
+        private readonly IFileService _localFileService;
 
         public EditSliderCommandHandler(ISliderRepository sliderRepository,
-            ILocalFileService localFileService)
+            IFileService localFileService)
         {
             _sliderRepository = sliderRepository;
             _localFileService = localFileService;
