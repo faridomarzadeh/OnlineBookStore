@@ -9,7 +9,7 @@ namespace Common.Domain.Utils
 {
     public static class TextHelper
     {
-        public static bool IsText(this string value)
+        public static bool NotNumeric(this string value)
         {
             var isNumber = Regex.IsMatch(value, Constants.RegexExpressions.IS_NUMBER);
             return !isNumber;

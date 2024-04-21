@@ -1,5 +1,6 @@
 ﻿using Common.Domain;
 using Common.Domain.Exceptions;
+using Common.Domain.ValueObjects;
 using Shop.Domain.UserAgg.Enums;
 using Shop.Domain.UserAgg.Services;
 using System;
@@ -62,14 +63,14 @@ namespace Shop.Domain.UserAgg
             Addresses.Remove(address);
         }
 
-        public void EditAddress(UserAddress address)
+        public void EditAddress(long userId, string province, string city, string postalCode, string mailingAddress,
+            PhoneNumber phoneNumber, string name, string family, string nationalID)
         {
-            var oldAddress = Addresses.FirstOrDefault(f=>f.Id==Id);
+            var oldAddress = Addresses.FirstOrDefault(f=>f.Id==userId);
             if (oldAddress == null)
                 throw new NullOrEmptyDomainDataException(DomainConstants.Exceptions.ADDRESS_NOT_FOUND);
 
-            Addresses.Remove(oldAddress);
-            Addresses.Add(address);
+            oldAddress.Edit(province, city, postalCode, mailingAddress,phoneNumber, name, family, nationalID);
         }
 
         public void ChargeWallet(Wallet wallet)
