@@ -93,9 +93,9 @@ namespace Shop.Domain.UserAgg
             AvatarName = imageName;
         }
 
-        public static User Register(string email,string phoneNumber, string password, IUserDomainService userDomainService)
+        public static User Register(string phoneNumber, string password, IUserDomainService userDomainService)
         {
-            return new User(string.Empty,string.Empty,phoneNumber,email,password,Gender.None,userDomainService);
+            return new User(string.Empty,string.Empty,phoneNumber,null,password,Gender.None,userDomainService);
         }
 
         public void Validate(string phoneNumber, string email, IUserDomainService userDomainService)

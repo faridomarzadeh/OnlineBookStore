@@ -5,15 +5,18 @@ namespace Shop.Domain.UserAgg
 {
     public class Wallet:BaseEntity 
     {
-        public Wallet(int price, string description, bool isFinalized, DateTime? finalizedDate, WalletType type)
+        public Wallet(int price, string description, bool isFinalized, WalletType type)
         {
             if (price < UserConstants.MINIMUM_CHARGE)
                 throw new InvalidDomainDataException(UserConstants.ExceptionMessages.INVALID_CHARGE_AMOUNT);
             Price = price;
             Description = description;
             IsFinalized = isFinalized;
-            FinalizedDate = finalizedDate;
             this.type = type;
+            if (IsFinalized)
+            {
+                FinalizedDate = DateTime.Now;
+            }
         }
 
         public long UserId { get; internal set; }
