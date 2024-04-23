@@ -9,7 +9,7 @@ namespace Common.Domain.Repository
 {
     public interface IBaseRepository<T> where T : BaseEntity
     {
-        Task<T> GetAsync(long id);
+        Task<T?> GetAsync(long id);
         Task<T?> GetTracking(long id);
         Task AddAsync(T entity);
         void Add(T entity);
@@ -18,6 +18,6 @@ namespace Common.Domain.Repository
         Task<int> Save();
         Task<bool> ExistsAsync(Expression<Func<T,bool>> expression);
         bool Exists(Expression<Func<T,bool>> expression);
-        T Get(long id);
+        T? Get(long id);
     }
 }
