@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Common.Query.Filter;
+using MediatR;
 
 namespace Common.Query
 {
