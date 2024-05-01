@@ -33,6 +33,7 @@ namespace Shop.Query.Comments.GetByFilter
                 Data = await results.Skip(skip).Take(@params.Take).Select(comment => comment.Map()).ToListAsync(cancellationToken),
                 FilterParams = @params,
             };
+            result.GeneratePaging(results,@params.Take,@params.CurrentPage);
             return result;
         }
     }

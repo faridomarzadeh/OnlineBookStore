@@ -35,6 +35,8 @@ namespace Common.Query.Filter
     }
 
     public class BaseFilter<TData, TParams> : BaseFilter
+        where TParams : BaseFilterParam
+        where TData : BaseDto
     {
         public List<TData> Data { get; set; }
         public TParams FilterParams { get; set; }

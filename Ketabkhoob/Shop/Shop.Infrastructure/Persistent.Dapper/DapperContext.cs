@@ -20,5 +20,8 @@ namespace Shop.Infrastructure.Persistent.Dapper
         public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
 
         public string Inventories => "[Seller].Inventories";
+        public string OrderItems => "[Order].Items";
+        public string Products => "[Product].Products";
+        public string Sellers => "[Seller].Sellers";
     }
 }
