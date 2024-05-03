@@ -55,14 +55,19 @@ namespace Shop.Infrastructure.Persistent.EF.UserAgg
                 option.Property(b => b.Family)
                     .IsRequired().HasMaxLength(50);
 
-                option.Property(b => b.PhoneNumber)
-                    .IsRequired().HasMaxLength(12);
 
                 option.Property(b => b.NationalID)
                     .IsRequired().HasMaxLength(10);
 
                 option.Property(b => b.PostalCode)
                     .IsRequired().HasMaxLength(20);
+                option.OwnsOne(b => b.PhoneNumber, config =>
+                {
+                    config.Property(c=>c.Value)
+                    .HasColumnName("PhoneNumber")
+                    .IsRequired()
+                    .HasMaxLength(11);
+                });
             });
 
             builder.OwnsMany(b => b.Wallets, option =>

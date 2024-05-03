@@ -11,6 +11,10 @@ namespace Shop.Domain.GeneralEntities
 {
     public class Banner:BaseEntity
     {
+        private Banner()
+        {
+            
+        }
         public Banner(string link, string imageName, BannerPosition position)
         {
             Validate(link, imageName);

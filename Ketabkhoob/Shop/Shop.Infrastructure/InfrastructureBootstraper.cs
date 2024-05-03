@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Shop.Domain.CategoryAgg;
+using Shop.Domain.CommentAgg;
 using Shop.Domain.GeneralEntities.Repositories;
 using Shop.Domain.OrderAgg;
 using Shop.Domain.ProductAgg;
@@ -10,6 +11,7 @@ using Shop.Domain.UserAgg;
 using Shop.Infrastructure.Persistent.Dapper;
 using Shop.Infrastructure.Persistent.EF;
 using Shop.Infrastructure.Persistent.EF.CategoryAgg;
+using Shop.Infrastructure.Persistent.EF.CommentAgg;
 using Shop.Infrastructure.Persistent.EF.GeneralEntities.Repositories;
 using Shop.Infrastructure.Persistent.EF.OrderAgg;
 using Shop.Infrastructure.Persistent.EF.ProductAgg;
@@ -36,6 +38,8 @@ namespace Shop.Infrastructure
             services.AddTransient<IBannerRepository, BannerRepository>();
             services.AddTransient<ISliderRepository, SliderRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
+
 
             services.AddTransient(_ =>new DapperContext(connectionString));
             services.AddDbContext<ShopContext>(option =>

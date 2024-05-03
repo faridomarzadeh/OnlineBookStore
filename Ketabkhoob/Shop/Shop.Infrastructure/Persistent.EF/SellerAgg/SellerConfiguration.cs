@@ -25,6 +25,7 @@ namespace Shop.Infrastructure.Persistent.EF.SellerAgg
             builder.OwnsMany(b => b.Inventories, option =>
             {
                 option.ToTable("Inventories", "Seller");
+                option.HasKey(b => b.Id);
                 option.HasIndex(b => b.ProductId);
                 option.HasIndex(b => b.SellerId);
 

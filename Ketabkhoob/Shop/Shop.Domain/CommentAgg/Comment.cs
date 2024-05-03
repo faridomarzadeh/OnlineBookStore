@@ -10,6 +10,10 @@ namespace Shop.Domain.CommentAgg
 {
     public class Comment:AggregateRoot
     {
+        private Comment()
+        {
+            
+        }
         public Comment(long userId, long productId, string text)
         {
             NullOrEmptyDomainDataException.CheckString(text, nameof(text));

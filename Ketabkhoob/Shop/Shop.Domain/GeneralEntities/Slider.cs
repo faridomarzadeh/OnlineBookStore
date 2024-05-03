@@ -10,6 +10,7 @@ namespace Shop.Domain.GeneralEntities
 {
     public class Slider:BaseEntity
     {
+        private Slider() { }
         public Slider(string title, string link, string imageName)
         {
             Validate(title, link, imageName);

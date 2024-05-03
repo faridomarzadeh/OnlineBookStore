@@ -30,13 +30,13 @@ namespace Shop.Query.Orders
         public static async Task<List<OrderItemDto>> MapOrderItems(this OrderDto order, DapperContext dapperContext)
         {
             using var connection = dapperContext.CreateConnection();
-            var sql = $"SELECT s.ShopName, o.OrderId, o.InventoryId,o.Count, o.Price," +
-                $"p.Title as Product.Title, p.Slug as Product.Slug" +
+            var sql = $"SELECT s.ShopName, o.OrderId, o.InventoryId, o.Count, o.Price, " +
+                $"p.Title as ProductTitle, p.Slug as ProductSlug, p.ImageName as ProductImageName" +
                 $" FROM {dapperContext.OrderItems} o" +
-                $"Inner Join {dapperContext.Inventories} i on o.InventoryId=i.Id" +
-                $"Inner Join {dapperContext.Products} p on i.ProductId=p.Id" +
-                $"Inner Join {dapperContext.Sellers} s on i.SellerId=s.Id" +
-                $"where o.OrderId=@orderId";
+                $" Inner Join {dapperContext.Inventories} i on o.InventoryId=i.Id" +
+                $" Inner Join {dapperContext.Products} p on i.ProductId=p.Id" +
+                $" Inner Join {dapperContext.Sellers} s on i.SellerId=s.Id" +
+                $" where o.OrderId=@orderId";
 
             var queryResult =await connection.QueryAsync<OrderItemDto>(sql, new { orderId = order.Id });
             return queryResult.ToList();
